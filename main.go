@@ -223,41 +223,41 @@ func generateNeovimScheme(bj Base16JSON) []byte {
 " vi:syntax=vim
 if !has("gui_running")
   if exists("g:base16_shell_path")
-    execute "silent !/bin/sh ".g:base16_shell_path."/base16-polybar.sh"
+    execute "silent !/bin/sh ".g:base16_shell_path."/base16-` + fmt.Sprintf(bj.Name) + `.sh"
   endif
 endif
 
 " GUI color definitions
 let s:gui00        = "` + fmt.Sprintf("%s", formatClean(bj.Color[0])) + `"
 let g:base16_gui00 = "` + fmt.Sprintf("%s", formatClean(bj.Color[0])) + `"
-let s:gui01        = "` + fmt.Sprintf("%s", formatClean(bj.Color[12])) + `"
-let g:base16_gui01 = "` + fmt.Sprintf("%s", formatClean(bj.Color[12])) + `"
-let s:gui02        = "` + fmt.Sprintf("%s", formatClean(bj.Color[13])) + `"
-let g:base16_gui02 = "` + fmt.Sprintf("%s", formatClean(bj.Color[13])) + `"
+let s:gui01        = "` + fmt.Sprintf("%s", formatClean(bj.Color[0])) + `"
+let g:base16_gui01 = "` + fmt.Sprintf("%s", formatClean(bj.Color[0])) + `"
+let s:gui02        = "` + fmt.Sprintf("%s", formatClean(bj.Color[7])) + `"
+let g:base16_gui02 = "` + fmt.Sprintf("%s", formatClean(bj.Color[7])) + `"
 let s:gui03        = "` + fmt.Sprintf("%s", formatClean(bj.Color[8])) + `"
 let g:base16_gui03 = "` + fmt.Sprintf("%s", formatClean(bj.Color[8])) + `"
 let s:gui04        = "` + fmt.Sprintf("%s", formatClean(bj.Color[14])) + `"
 let g:base16_gui04 = "` + fmt.Sprintf("%s", formatClean(bj.Color[14])) + `"
-let s:gui05        = "` + fmt.Sprintf("%s", formatClean(bj.Color[7])) + `"
-let g:base16_gui05 = "` + fmt.Sprintf("%s", formatClean(bj.Color[7])) + `"
+let s:gui05        = "` + fmt.Sprintf("%s", formatClean(bj.Color[15])) + `"
+let g:base16_gui05 = "` + fmt.Sprintf("%s", formatClean(bj.Color[15])) + `"
 let s:gui06        = "` + fmt.Sprintf("%s", formatClean(bj.Color[15])) + `"
 let g:base16_gui06 = "` + fmt.Sprintf("%s", formatClean(bj.Color[15])) + `"
 let s:gui07        = "` + fmt.Sprintf("%s", formatClean(bj.Color[9])) + `"
 let g:base16_gui07 = "` + fmt.Sprintf("%s", formatClean(bj.Color[9])) + `"
-let s:gui08        = "` + fmt.Sprintf("%s", formatClean(bj.Color[1])) + `"
-let g:base16_gui08 = "` + fmt.Sprintf("%s", formatClean(bj.Color[1])) + `"
+let s:gui08        = "` + fmt.Sprintf("%s", formatClean(bj.Color[9])) + `"
+let g:base16_gui08 = "` + fmt.Sprintf("%s", formatClean(bj.Color[9])) + `"
 let s:gui09        = "` + fmt.Sprintf("%s", formatClean(bj.Color[10])) + `"
 let g:base16_gui09 = "` + fmt.Sprintf("%s", formatClean(bj.Color[10])) + `"
-let s:gui0A        = "` + fmt.Sprintf("%s", formatClean(bj.Color[3])) + `"
-let g:base16_gui0A = "` + fmt.Sprintf("%s", formatClean(bj.Color[3])) + `"
-let s:gui0B        = "` + fmt.Sprintf("%s", formatClean(bj.Color[2])) + `"
-let g:base16_gui0B = "` + fmt.Sprintf("%s", formatClean(bj.Color[2])) + `"
-let s:gui0C        = "` + fmt.Sprintf("%s", formatClean(bj.Color[6])) + `"
-let g:base16_gui0C = "` + fmt.Sprintf("%s", formatClean(bj.Color[6])) + `"
-let s:gui0D        = "` + fmt.Sprintf("%s", formatClean(bj.Color[4])) + `"
-let g:base16_gui0D = "` + fmt.Sprintf("%s", formatClean(bj.Color[4])) + `"
-let s:gui0E        = "` + fmt.Sprintf("%s", formatClean(bj.Color[5])) + `"
-let g:base16_gui0E = "` + fmt.Sprintf("%s", formatClean(bj.Color[5])) + `"
+let s:gui0A        = "` + fmt.Sprintf("%s", formatClean(bj.Color[11])) + `"
+let g:base16_gui0A = "` + fmt.Sprintf("%s", formatClean(bj.Color[11])) + `"
+let s:gui0B        = "` + fmt.Sprintf("%s", formatClean(bj.Color[10])) + `"
+let g:base16_gui0B = "` + fmt.Sprintf("%s", formatClean(bj.Color[10])) + `"
+let s:gui0C        = "` + fmt.Sprintf("%s", formatClean(bj.Color[14])) + `"
+let g:base16_gui0C = "` + fmt.Sprintf("%s", formatClean(bj.Color[14])) + `"
+let s:gui0D        = "` + fmt.Sprintf("%s", formatClean(bj.Color[12])) + `"
+let g:base16_gui0D = "` + fmt.Sprintf("%s", formatClean(bj.Color[12])) + `"
+let s:gui0E        = "` + fmt.Sprintf("%s", formatClean(bj.Color[13])) + `"
+let g:base16_gui0E = "` + fmt.Sprintf("%s", formatClean(bj.Color[13])) + `"
 let s:gui0F        = "` + fmt.Sprintf("%s", formatClean(bj.Color[11])) + `"
 let g:base16_gui0F = "` + fmt.Sprintf("%s", formatClean(bj.Color[11])) + `"
 
@@ -358,7 +358,7 @@ endif
 " Theme setup
 hi clear
 syntax reset
-let g:colors_name = "base16-polybar"
+let g:colors_name = "base16-` + fmt.Sprintf(bj.Name) + `"
 
 " Highlighting function
 " Optional variables are attributes and guisp
